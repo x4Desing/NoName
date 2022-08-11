@@ -45,22 +45,22 @@
 @define-color dark_5 #000000;
 @define-color accent_bg_color #ee578d;
 @define-color accent_fg_color white;
-@define-color accent_color #ee578d;
-@define-color destructive_bg_color @red_4;
+@define-color accent_color @accent_bg_color;
+@define-color destructive_bg_color @red_1;
 @define-color destructive_fg_color white;
-@define-color destructive_color #ff7b63;
-@define-color success_bg_color @green_5;
+@define-color destructive_color @destructive_bg_color;
+@define-color success_bg_color @green_1;
 @define-color success_fg_color white;
-@define-color success_color @green_1;
-@define-color warning_bg_color #cd9309;
+@define-color success_color @success_bg_color;
+@define-color warning_bg_color @orange_1;
 @define-color warning_fg_color rgba(0, 0, 0, 0.8);
-@define-color warning_color @yellow_2;
-@define-color error_bg_color @red_4;
+@define-color warning_color @warning_bg_color;
+@define-color error_bg_color @red_1;
 @define-color error_fg_color white;
-@define-color error_color #ff7b63;
+@define-color error_color @error_bg_color;
 @define-color window_bg_color #211E3B;
 @define-color window_fg_color white;
-@define-color view_bg_color #211E3B;
+@define-color view_bg_color @window_bg_color;
 @define-color view_fg_color #ffffff;
 @define-color headerbar_bg_color #1a1826;
 @define-color headerbar_fg_color white;
@@ -70,11 +70,11 @@
 @define-color card_bg_color rgba(238, 87, 141, 0.1);
 @define-color card_fg_color white;
 @define-color card_shade_color rgba(0, 0, 0, 0.36);
-@define-color popover_bg_color #1a1826;
+@define-color popover_bg_color @headerbar_bg_color;
 @define-color popover_fg_color white;
 @define-color shade_color rgba(0, 0, 0, 0.36);
 @define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
-* { padding: 0; -GtkToolButton-icon-spacing: 4; -GtkTextView-error-underline-color: @error_bg_color; -GtkScrolledWindow-scrollbar-spacing: 0; -GtkToolItemGroup-expander-size: 11; -GtkWidget-text-handle-width: 20; -GtkWidget-text-handle-height: 24; -GtkDialog-button-spacing: 4; -GtkDialog-action-area-border: 0; outline-color: alpha(currentColor,0.3); outline-style: dashed; outline-offset: -3px; outline-width: 1px; -gtk-outline-radius: 4px; -gtk-secondary-caret-color: @accent_bg_color; }
+* { padding: 0; -GtkToolButton-icon-spacing: 4; -GtkTextView-error-underline-color: @error_bg_color; -GtkScrolledWindow-scrollbar-spacing: 0; -GtkToolItemGroup-expander-size: 11; -GtkWidget-text-handle-width: 20; -GtkWidget-text-handle-height: 24; -GtkDialog-button-spacing: 4; -GtkDialog-action-area-border: 0; outline-color: alpha(currentColor,0.3); outline-style: dashed; outline-offset: -3px; outline-width: 2px; -gtk-outline-radius: 4px; -gtk-secondary-caret-color: @accent_bg_color; }
 
 .background { color: @window_fg_color; background-color: @window_bg_color; }
 
@@ -899,11 +899,11 @@ menuitem check:dir(ltr), menuitem radio:dir(ltr) { margin-right: 7px; }
 
 menuitem check:dir(rtl), menuitem radio:dir(rtl) { margin-left: 7px; }
 
-popover.background { padding: 2px; background-color: @popover_bg_color; box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.09), 0 2px 8px 3px rgba(0, 0, 0, 0.05); }
+popover.background { padding: 2px; background-color: @popover_bg_color; box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.09), 0 2px 8px 3px rgba(0, 0, 0, 0.05); }
 
-.csd popover.background, popover.background { border: 1px solid mix(currentColor,@window_bg_color,0.85); border-radius: 12px; }
+.csd popover.background, popover.background { border: 2px solid @accent_bg_color; border-radius: 12px; }
 
-.csd popover.background { background-clip: padding-box; border-color: rgba(0, 0, 0, 0.14); }
+.csd popover.background { background-clip: padding-box; border-color: shade(mix(black,@accent_bg_color,0.7),0.9); }
 
 popover.background:backdrop { background-color: @window_bg_color; box-shadow: none; }
 
@@ -1183,7 +1183,7 @@ checkbutton.text-button label:not(:only-child):first-child, radiobutton.text-but
 
 checkbutton.text-button label:not(:only-child):last-child, radiobutton.text-button label:not(:only-child):last-child { margin-right: 4px; }
 
-check, radio { margin: 0 4px; min-height: 14px; min-width: 14px; border: 2px solid; -gtk-icon-source: none; padding: 1px; }
+check, radio { margin: 0 4px; min-height: 14px; min-width: 14px; border: 2px solid @accent_bg_color; -gtk-icon-source: none; padding: 2px; }
 
 check:only-child, radio:only-child { margin: 0; }
 
@@ -2021,7 +2021,7 @@ colorchooser .popover.osd { border-radius: 5px; }
 
 .scale-popup button:hover { background-color: alpha(@window_fg_color,0.1); border-radius: 5px; }
 
-decoration { border-radius: 12px 12px 0 0; border-width: 0px; box-shadow: 0 3px 12px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px shade(mix(black,@accent_bg_color,0.7),0.9); margin: 10px; }
+decoration { border-radius: 12px 12px 0 0; border-width: 2px; box-shadow: 0 3px 12px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px shade(mix(black,@accent_bg_color,0.7),0.9); margin: 10px; }
 
 decoration:backdrop { box-shadow: 0 3px 12px 2px transparent, 0 2px 6px 2px rgba(0, 0, 0, 0.14), 0 0 0 2px shade(mix(currentColor,@window_bg_color,0.85),1); transition: 200ms ease-out; }
 
@@ -2033,19 +2033,19 @@ decoration:backdrop { box-shadow: 0 3px 12px 2px transparent, 0 2px 6px 2px rgba
 
 .popup decoration { box-shadow: none; }
 
-.ssd decoration { box-shadow: 0 0 0 1px shade(mix(currentColor,@window_bg_color,0.85),0.86); }
+.ssd decoration { box-shadow: 0 0 0 1px shade(mix(black,@accent_bg_color,0.7),0.9); }
 
 .ssd decoration:backdrop { box-shadow: 0 0 0 1px shade(mix(currentColor,@window_bg_color,0.85),0.7); }
 
 .ssd.maximized decoration, .ssd.maximized decoration:backdrop { box-shadow: none; }
 
-.csd.popup decoration { border-radius: 6px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px alpha(shade(mix(black,@accent_bg_color,0.7),0.9),0.9); }
+.csd.popup decoration { border-radius: 6px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 2px alpha(shade(mix(black,@accent_bg_color,0.7),0.9),0.9); }
 
 tooltip.csd decoration { border-radius: 5px; box-shadow: none; }
 
-messagedialog.csd decoration { border-radius: 12px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px alpha(shade(mix(black,@accent_bg_color,0.7),0.9),0.9); }
+messagedialog.csd decoration { border-radius: 12px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 2px alpha(shade(mix(black,@accent_bg_color,0.7),0.9),0.9); }
 
-.solid-csd decoration { margin: 0; padding: 4px; background-color: mix(currentColor,@window_bg_color,0.85); border: solid 1px mix(currentColor,@window_bg_color,0.85); border-radius: 0; box-shadow: inset 0 0 0 5px mix(currentColor,@window_bg_color,0.85), inset 0 0 0 4px @headerbar_bg_color, inset 0 0 0 1px mix(currentColor,@window_bg_color,0.85); }
+.solid-csd decoration { margin: 0; padding: 4px; background-color: mix(currentColor,@window_bg_color,0.85); border: solid 2px mix(currentColor,@window_bg_color,0.85); border-radius: 0; box-shadow: inset 0 0 0 5px mix(currentColor,@window_bg_color,0.85), inset 0 0 0 4px @headerbar_bg_color, inset 0 0 0 1px mix(currentColor,@window_bg_color,0.85); }
 
 .solid-csd decoration:backdrop { box-shadow: inset 0 0 0 3px @window_bg_color; }
 
@@ -2885,7 +2885,7 @@ GraniteWidgetsPopOver .sidebar.view, GraniteWidgetsPopOver iconview.sidebar { bo
 
 GraniteWidgetsStaticNotebook .frame { border: none; }
 
-.popover_bg { background-color: @view_bg_color; background-image: none; border: 1px solid @view_bg_color; color: @window_fg_color; }
+.popover_bg { background-color: @view_bg_color; background-image: none; border: 2px solid @accent_bg_color; color: @window_fg_color; }
 
 .deck { background-color: @view_bg_color; }
 
@@ -3013,7 +3013,7 @@ button.back-button:dir(rtl), button.back-button.text-button:dir(rtl) { padding: 
 
 .nautilus-window entry.search > *:not(image), .nautilus-window entry.search > *:backdrop:not(image) { color: @accent_fg_color; background-color: @accent_bg_color; }
 
-.floating-bar { padding: 3px; background-color: @view_bg_color; border-width: 1px; border-style: solid solid none; border-color: mix(currentColor,@window_bg_color,0.85); border-radius: 8px 0 0 0; }
+.floating-bar { padding: 3px; background-color: @accent_bg_color; border-width: 1px; border-style: solid solid none; border-color: mix(currentColor,@window_bg_color,0.85); border-radius: 8px 0 0 0; }
 
 .floating-bar.bottom.left { border-left-style: none; border-top-left-radius: 0; }
 
@@ -3029,9 +3029,9 @@ button.back-button:dir(rtl), button.back-button.text-button:dir(rtl) { padding: 
 
 .disk-space-display.unknown.border { color: shade(#888a85, 0.7); }
 
-.disk-space-display.used { background-color: #729fcf; border-color: shade(#729fcf, 0.7); color: #729fcf; }
+.disk-space-display.used { background-color: @accent_bg_color; border-color: shade(@accent_bg_color, 0.7); color: @accent_bg_color; }
 
-.disk-space-display.used.border { color: shade(#729fcf, 0.7); }
+.disk-space-display.used.border { color: shade(@accent_bg_color, 0.7); }
 
 .disk-space-display.free { background-color: #eeeeec; border-color: shade(#eeeeec, 0.7); color: #eeeeec; }
 

@@ -1,19 +1,19 @@
 /* GTK NAMED COLORS ---------------- use responsibly! */
 @define-color accent_bg_color #ff7373;
 @define-color accent_fg_color white;
-@define-color accent_color #ff7373;
-@define-color destructive_bg_color @red_3;
+@define-color accent_color @accent_bg_color;
+@define-color destructive_bg_color @red_1;
 @define-color destructive_fg_color white;
-@define-color destructive_color @red_4;
-@define-color success_bg_color @green_4;
+@define-color destructive_color @destructive_bg_color;
+@define-color success_bg_color @green_1;
 @define-color success_fg_color white;
-@define-color success_color @green_5;
-@define-color warning_bg_color @yellow_5;
+@define-color success_color @success_bg_color;
+@define-color warning_bg_color @orange_1;
 @define-color warning_fg_color rgba(0, 0, 0, 0.8);
-@define-color warning_color #ae7b03;
-@define-color error_bg_color @red_3;
+@define-color warning_color @warning_bg_color;
+@define-color error_bg_color @red_1;
 @define-color error_fg_color white;
-@define-color error_color @red_4;
+@define-color error_color @error_bg_color;
 @define-color window_bg_color #fafafa;
 @define-color window_fg_color rgba(0, 0, 0, 0.8);
 @define-color view_bg_color #ffffff;
