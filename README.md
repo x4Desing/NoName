@@ -2,6 +2,11 @@
 Gtk Themes creados con [adw-gtk3](https://github.com/lassekongo83/adw-gtk3) y [libadwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/).
 
 Recomiendo usar [Fluent icon theme](https://github.com/vinceliuice/Fluent-icon-theme) by [@vinceliuice](https://github.com/vinceliuice).
+| Light theme | Dark theme |
+|:-----------:|:----------:|
+| ![NoName-light](/Capturas/Captura%20desde%202022-08-10%2000-31-32.png?raw=true) | ![NoName-dark](/Capturas/Captura%20desde%202022-08-10%2000-30-08.png?raw=true) |
+| ![NoName-light](/Capturas/Captura%20desde%202022-08-10%2000-33-23.png?raw=true) | ![NoName-dark](/Capturas/Captura%20desde%202022-08-10%2000-28-51.png?raw=true) |
+| ![NoName-dark](/Capturas/Captura%20desde%202022-08-10%2000-33-59.png?raw=true) | ![NoName-light](/Capturas/Captura%20desde%202022-08-10%2000-26-25.png?raw=true) |
 
 # Install
 - Copiar las carpetas en `~/.local/share/themes/`.
